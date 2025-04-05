@@ -15,7 +15,7 @@ app.use(
 	cors({
 		origin: [
 			"http://localhost:5173",
-			"https://make-mation-specials.vercel.app/",
+			"https://make-mation-specials.vercel.app",
 		],
 		credentials: true,
 	})
