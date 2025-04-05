@@ -9,7 +9,8 @@ class UserController {
 			if (!user) {
 				return res.status(404).json({ message: "User not found" });
 			}
-			const fetchedUser = await Users.findById(user._id).select(
+
+			const fetchedUser = await Users.findById(user.userId).select(
 				"-password"
 			);
 

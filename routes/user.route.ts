@@ -8,7 +8,7 @@ const router = express.Router();
 router.get("/info", authenticatedOnly, Wrapper(UserController.getUserInfo));
 router.get(
 	"/leaderboard",
-	authenticatedOnly,
+
 	Wrapper(UserController.getLeaderboard)
 );
 
