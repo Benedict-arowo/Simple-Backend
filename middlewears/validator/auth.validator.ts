@@ -9,6 +9,9 @@ export const registrationSchema = Joi.object({
 	full_name: Joi.string().required(),
 	email: Joi.string().email().required(),
 	password: Joi.string().required(),
+	age: Joi.number().required(),
+	dob: Joi.date().required(),
+	reason: Joi.string().required(),
 });
 
 export const changePasswordSchema = Joi.object({

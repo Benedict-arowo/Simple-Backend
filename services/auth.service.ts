@@ -15,10 +15,16 @@ class AuthService {
 		full_name,
 		email,
 		password,
+		dob,
+		reason,
+		age,
 	}: {
 		full_name: string;
 		email: string;
 		password: string;
+		dob: Date;
+		reason: string;
+		age: Number;
 	}) => {
 		try {
 			const existingUser = await Users.findOne({ email });
@@ -32,6 +38,9 @@ class AuthService {
 				name: full_name,
 				email,
 				password: hashedPassword,
+				dob: new Date(dob),
+				reason,
+				age,
 			});
 
 			await userData.save();
@@ -182,7 +191,6 @@ class AuthService {
 			}
 
 			user.email_verified = true;
-
 			user.otp = undefined;
 			user.otp_expiry = undefined;
 
@@ -289,7 +297,6 @@ class AuthService {
 		tokenType: "access" | "refresh" | "both" = "both"
 	) => {
 		try {
-			// Payload for the tokens
 			const payload = { userId: user.id, email: user.email };
 
 			let tokens: {
@@ -336,28 +343,24 @@ class AuthService {
 						return reject(new Error("Invalid refresh token"));
 					}
 
-					// Assuming 'decoded' contains user data (like userId)
 					const userId = (decoded as any).userId;
 
-					// Generate new access token
 					const newAccessToken = jwt.sign(
 						{ userId },
 						CONFIG.env.ACCESS_TOKEN_SECRET,
 						{
-							expiresIn: CONFIG.env.ACCESS_TOKEN_EXPIRATION, // e.g., '15m'
+							expiresIn: CONFIG.env.ACCESS_TOKEN_EXPIRATION,
 						}
 					);
 
-					// Generate a new refresh token (optional)
 					const newRefreshToken = jwt.sign(
 						{ userId },
 						CONFIG.env.REFRESH_TOKEN_SECRET,
 						{
-							expiresIn: CONFIG.env.REFRESH_TOKEN_EXPIRATION, // e.g., '7d'
+							expiresIn: CONFIG.env.REFRESH_TOKEN_EXPIRATION,
 						}
 					);
 
-					// Resolve with new tokens
 					resolve({
 						accessToken: newAccessToken,
 						refreshToken: newRefreshToken,

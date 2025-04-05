@@ -17,13 +17,24 @@ const userSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
+		age: {
+			type: Number,
+			required: true,
+		},
+		dob: {
+			type: Date,
+			required: true,
+		},
+		reason: {
+			type: String,
+			required: true,
+		},
 		score: {
 			type: Number,
 			default: 0,
 		},
 		otp: {
 			type: String,
-			// Having different types of otp? For email verification and password reset
 		},
 		total_test_taken: {
 			type: Number,
