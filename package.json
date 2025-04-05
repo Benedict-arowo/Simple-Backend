@@ -1,0 +1,38 @@
+{
+	"name": "simple-backend",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"build": "npx tsc --build",
+		"start": "node ./build/index.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"dependencies": {
+		"@types/cookie-parser": "^1.4.8",
+		"@types/cors": "^2.8.17",
+		"@types/express": "^5.0.1",
+		"@types/morgan": "^1.9.9",
+		"@types/node": "^22.14.0",
+		"argon": "^2.0.21",
+		"argon2": "^0.41.1",
+		"cookie-parser": "^1.4.7",
+		"cors": "^2.8.5",
+		"dotenv": "^16.4.7",
+		"envalid": "^8.0.0",
+		"express": "^5.1.0",
+		"http-status-codes": "^2.3.0",
+		"joi": "^17.13.3",
+		"jsonwebtoken": "^9.0.2",
+		"mongoose": "^8.13.2",
+		"morgan": "^1.10.0",
+		"nodemailer": "^6.10.0",
+		"typescript": "^5.8.3"
+	},
+	"devDependencies": {
+		"@types/jsonwebtoken": "^9.0.9",
+		"@types/nodemailer": "^6.4.17"
+	}
+}

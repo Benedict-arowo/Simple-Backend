@@ -1,0 +1,7 @@
+{
+	"verbose": true,
+	"watch": ["*"],
+	"ext": "ts,js,json",
+	"ignore": ["node_modules/*"],
+	"exec": "ts-node ./index.ts"
+}
