@@ -73,9 +73,9 @@ class AuthService {
 				throw new UnauthorizedError("Invalid credentials");
 			}
 
-			if (!user.email_verified) {
-				throw new UnauthorizedError("Email not verified");
-			}
+			// if (!user.email_verified) {
+			// 	throw new UnauthorizedError("Email not verified");
+			// }
 
 			const tokens = this.generateTokens(user, "both");
 
@@ -106,9 +106,9 @@ class AuthService {
 				throw new NotFoundError("User not found");
 			}
 
-			if (!user.email_verified) {
-				throw new UnauthorizedError("Email not verified");
-			}
+			// if (!user.email_verified) {
+			// 	throw new UnauthorizedError("Email not verified");
+			// }
 
 			const isPasswordValid = await argon.verify(
 				user.password,
